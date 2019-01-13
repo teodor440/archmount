@@ -1,0 +1,7 @@
+# Ignore binaries
+bin
+bin/
+
+# Ignore objects
+obj
+obj/
