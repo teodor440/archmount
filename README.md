@@ -3,9 +3,10 @@ This program lets you mount different types of archives as read-only
 The implementation is based on libfuse and libarchive. To run it you need this two installed  
 
 ## How to install  
-### Ubuntu  
+### Ubuntu
+First you should install or have installed [libfuse3](https://github.com/libfuse/libfuse) then preceed to:
 ```
-sudo apt install libarchive-dev  && libfuse-dev
+sudo apt install libarchive-dev  && sudo apt install libfuse-dev && sudo apt install pkg-config
 cd /path/to/repository
 make install
 ```  
