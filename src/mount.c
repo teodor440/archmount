@@ -1,5 +1,12 @@
 #include <mount.h>
 
+extern struct file_entry *main_entry;
+extern struct archive_node *first_archive_node, *last_archive_node;
+extern struct file_node *first_entry, *last_entry;
+
+uid_t owner;
+gid_t owner_group;
+
 // Code to be executed first when the filesystem is loaded
 static void*
 arch_init(struct fuse_conn_info *conn,
@@ -150,7 +157,7 @@ mount_archive(char* mountpoint, char* archive_path) {
 	// Init args
 	int argc = 2;
 	char *argv[] = {
-		(char*)"fuse",
+		"fuse",
     mountpoint,
     NULL
 	};

@@ -19,9 +19,6 @@
 // For setting errors
 #include <errno.h>
 
-uid_t owner;
-gid_t owner_group;
-
 int mount_archive(char* mountpoint, char* archive_path);
 
 // Callbacks for libfuse

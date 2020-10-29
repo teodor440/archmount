@@ -32,21 +32,22 @@ struct file_entry {
   // If this file is a folder it should have pointers to descending sons
   struct file_entry* folder_descendent;
   struct file_entry* file_descendent;
-} *main_entry;
+};
+
 
 // Struct used for opened files
 struct archive_node {
   struct archive_node* next;
   struct archive* archive;
   uint64_t file_handle;
-} *first_archive_node, *last_archive_node;
+};
+
 
 // Struct to retain entries to delete them later
 struct file_node {
   struct file_node* next;
   struct file_entry* entry;
-} *first_entry, *last_entry;
-
+};
 
 static char* path_to_archive;
 

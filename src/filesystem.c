@@ -1,5 +1,9 @@
  #include <filesystem.h>
 
+struct file_entry *main_entry;
+struct archive_node *first_archive_node, *last_archive_node;
+struct file_node *first_entry, *last_entry;
+
 // Add to the stack of files in the fs
 static void
 add_file_node(struct file_entry* node) {

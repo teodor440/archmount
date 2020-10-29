@@ -11,6 +11,7 @@
 #include <limits.h>
 #include <errno.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 
 int verbose_flag = 0;
 
@@ -119,6 +120,10 @@ main(int argc, char *argv[])
 		return WRONG_PARAMS;
 	}
 
+	struct stat st = {0};
+	if (stat(mountpoint, &st) == -1) {
+	    mkdir(mountpoint, 0755);
+	}
 	mountpoint = realpath(mountpoint, NULL);
 	if (archive_path == NULL) {
 		perror("Error solving the mountpoint");
@@ -140,5 +145,5 @@ main(int argc, char *argv[])
 	// Free used resources
 	free(archive_path);
 
-	return ret;
+	return 0;
 }
