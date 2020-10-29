@@ -1,6 +1,6 @@
 ## What this project is about
-This project is only academic!
-This program allows you to mount different types of archives read-only.
+This project is only academic!  
+This program allows you to mount different types of archives read-only.  
 The implementation is based on libfuse and libarchive. To run it you need this two installed.
 
 ## How to install  
