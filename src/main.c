@@ -21,8 +21,8 @@ show_help() {
 	printf("File-system specific options:\n"
 	       "    -h                  Help\n"
 	       "    -v                  Verbose\n"
-				 "    --verbose           Verbose\n"
-				 "    --version           Shows version\n"
+	       "    --verbose           Verbose\n"
+	       "    --version           Shows version\n"
 	       "    --help              Shows usage\n"
 	       "\n");
 }
@@ -37,9 +37,9 @@ main(int argc, char *argv[])
       static struct option long_options[] =
         {
           /* These options set a flag. */
-          {"verbose",  	       no_argument,     &verbose_flag,        1},
-					{"version",       	 no_argument,     0,                    0},
-					{"help",       	 		 no_argument,     0, 										0},
+          {"verbose",          no_argument,     &verbose_flag,        1},
+	  {"version",          no_argument,     0,                    0},
+	  {"help",             no_argument,     0, 		      0},
           /* These options don’t set a flag.
              We distinguish them by their indices. */
           {"verbose",     no_argument,       0, 'v'},
@@ -57,22 +57,22 @@ main(int argc, char *argv[])
       if (option == -1)
         break;
 
-			// Process the current options
+      // Process the current options
       switch (option)
         {
         case 0:
           /* When long option processed
- 						 It is stored in optarg the argument of the option */
+          It is stored in optarg the argument of the option */
           if (long_options[option_index].flag != 0)
             break;
           if(strcmp(long_options[option_index].name, "version") == 0) {
-						printf("%s\n", __VERSION);
-						return 0;
-					}
-					else if(strcmp(long_options[option_index].name, "help") == 0) {
-						show_help();
-						return 0;
-					}
+		printf("%s\n", __VERSION);
+		return 0;
+	  }
+	  else if(strcmp(long_options[option_index].name, "help") == 0) {
+		show_help();
+		return 0;
+	  }
           break;
 
         case 'v':
@@ -85,14 +85,14 @@ main(int argc, char *argv[])
           break;
 
         case '?': // When no paramter provided, consider also the case with ':'
-					fprintf(stderr, "There is no such parameter as %c\n", optopt);
-					show_help();
-					return WRONG_PARAMS;
+	  fprintf(stderr, "There is no such parameter as %c\n", optopt);
+	  show_help();
+	  return WRONG_PARAMS;
           break;
 
         default:
           fprintf(stderr, "Unexpected error while processing args\n");
-					return WRONG_PARAMS;
+	  return WRONG_PARAMS;
         }
     }
 
@@ -136,7 +136,7 @@ main(int argc, char *argv[])
 	}
 
 	if ((getuid() == 0) || (geteuid() == 0)) {
-    printf("Running fuse with root privileges, you may consider security implications as any user has unlimited acces to the files inside\n");
+    		printf("Running fuse with root privileges, you may consider security implications as any user has unlimited acces to the files inside\n");
 	}
 
 	// Now try to mount the archive
